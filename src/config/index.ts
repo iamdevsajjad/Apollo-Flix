@@ -1,3 +1,4 @@
 export default {
-  port: 5000,
+  port: process.env.PORT,
+  url: process.env.DB_URL,
 };
