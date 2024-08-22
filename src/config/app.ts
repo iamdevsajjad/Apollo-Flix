@@ -1,5 +1,8 @@
 import express, { Request, Response } from "express";
+import { movieRoute } from "../modules/movies/movie.route";
 const app = express();
+app.use(express.json());
+app.use("/api/movies", movieRoute);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");

@@ -4,7 +4,7 @@ export interface IReviews {
   reviews: string;
 }
 
-export interface IMovie {
+export interface IMovie extends Document {
   title: string;
   description: string;
   releaseDate: string;

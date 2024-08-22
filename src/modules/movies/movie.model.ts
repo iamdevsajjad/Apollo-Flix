@@ -7,7 +7,7 @@ const reviewSchema = new Schema<IReviews>({
   reviews: { type: String },
 });
 
-const movieSchema = new Schema<IMovie>({
+const movieSchema: Schema = new Schema({
   title: { type: String, required: [true, "Tittle is required."] },
   description: { type: String, required: [true, "Description is required."] },
   releaseDate: { type: String },
