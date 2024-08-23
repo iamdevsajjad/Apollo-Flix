@@ -6,6 +6,17 @@ const createMovie = async (payload: IMovie) => {
   return result;
 };
 
+const getAllMovies = async () => {
+  const result = await Movie.find();
+  return result;
+};
+const getMovieById = async (_id: string) => {
+  const result = await Movie.findById(_id);
+  return result;
+};
+
 export const movieServices = {
   createMovie,
+  getAllMovies,
+  getMovieById,
 };
