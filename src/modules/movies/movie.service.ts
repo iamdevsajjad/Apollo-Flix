@@ -5,7 +5,7 @@ import { Movie } from "./movie.model";
 
 const createMovie = async (payload: IMovie) => {
 	const date = format(payload.releaseDate, "dd-MM-yyyy");
-	const slug = slugify(`${payload.title}-${date}`);
+	const slug = slugify(`${payload.title}-${date}`, { lower: true });
 	const result = await Movie.create({ ...payload, slug });
 	return result;
 };
@@ -14,13 +14,13 @@ const getAllMovies = async () => {
 	const result = await Movie.find();
 	return result;
 };
-const getMovieById = async (_id: string) => {
-	const result = await Movie.findById(_id);
+const getMovieBySlug = async (slug: string) => {
+	const result = await Movie.findOne({ slug: slug });
 	return result;
 };
 
 export const movieServices = {
 	createMovie,
 	getAllMovies,
-	getMovieById,
+	getMovieBySlug,
 };
